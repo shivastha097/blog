@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Category;
+use Session;
 class CategoryController extends Controller
 {
     /**
@@ -38,9 +39,16 @@ class CategoryController extends Controller
     {
         $this->validate($request,[
             'name'=>'required',
-            'status'=>'required,'
+            'status'=>'required',
 
         ]);
+        $category=new Category();
+        $category->name=$name=$request->name;
+        $category->status=$request->status;
+        $category->slug=str_slug($name);
+        $category->save();
+        Session::flash('msg','New Category is successfully added.');
+        return redirect()->route('admin.categories');
     }
 
     /**
