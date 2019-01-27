@@ -18,5 +18,9 @@ Route::group(['prefix'=>'admin'],function(){
 		'uses'=>'Admin\CategoryController@store',
 		'as'=>'admin.post_create_categories',
 	]);
+	Route::patch('categories/{$category}/edit', [
+		'uses'	=>	'Admin\CategoryController@edit',
+		'as'	=>	'admin.patch_edit_categories',
+	]);
 
 });

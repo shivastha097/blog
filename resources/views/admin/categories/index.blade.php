@@ -4,6 +4,11 @@
 	<div class="panel-heading">Categories
 		<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 	<div class="panel-body">
+		<div class="pull-right">
+			<a class="btn btn-primary" href="categories/create">Create New Category</a>
+		</div>
+		<br>
+		<br>
 		<table class="table table-bordered">
 		    <thead>
 		      <tr>
@@ -11,6 +16,7 @@
 		        <th>Name</th>
 		        <th>Status</th>
 		        <th>Created At</th>
+		        <th>Action</th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -20,6 +26,10 @@
 		        <td>{{$category->name}}</td>
 		        <td>{{$category->status}}</td>
 		        <td>{{$category->created_at->diffForHumans()}}</td>
+		        <td>
+		        	<a class="btn btn-primary" href="categories/{{$category->id}}/edit">Edit</a>
+		        	<a class="btn btn-danger" href="categories/{{$category->id}}">Delete</a>
+		        </td>
 		      </tr>
 		    @endforeach
 		    </tbody>
