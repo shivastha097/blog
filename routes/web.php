@@ -30,5 +30,9 @@ Route::group(['prefix'=>'admin'],function(){
 		'uses'	=> 'Admin\CategoryController@destroy',
 		'as'	=>	'admin.get_delete_category'
 	]);
+	// Route::get('posts', [
+	// 	'uses'	=>	'Admin\PostController@index',
+	// 	'as'	=>	'admin.posts'
+	// ]);
 
 });

@@ -9,12 +9,7 @@
 		</div>
 		<br>
 		<br>
-		@if( session('msg') )
-			<div class="alert alert-success">
-				{{ session('msg') }}
-			</div>
-		@endif
-
+		@include('layouts.admin.snippets.session-message')
 		<table class="table table-bordered">
 		    <thead>
 		      <tr>
@@ -31,7 +26,8 @@
 		        <td>{{$key+1}}</td>
 		        <td>{{$category->name}}</td>
 		        <td>{{$category->status}}</td>
-		        <td>{{$category->created_at->diffForHumans()}}</td>
+		        <!-- <td>{{$category->created_at->diffForHumans()}}</td> -->
+		        <td>{{$category->created_at->toFormattedDateString()}}</td>
 		        <td>
 		        	<a class="btn btn-primary" href="{{ route('admin.get_edit_category',['category'=> $category->id]) }}">Edit</a>
 		        	<a class="btn btn-danger" href="{{ route('admin.get_delete_category', ['category'=>$category->id]) }}">Delete</a>
@@ -40,6 +36,7 @@
 		    @endforeach
 		    </tbody>
 		  </table>
+		  {{$categories->links()}}
 	</div>
 </div>
 @endsection
