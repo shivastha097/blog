@@ -9,6 +9,12 @@
 		</div>
 		<br>
 		<br>
+		@if( session('msg') )
+			<div class="alert alert-success">
+				{{ session('msg') }}
+			</div>
+		@endif
+
 		<table class="table table-bordered">
 		    <thead>
 		      <tr>
@@ -27,8 +33,8 @@
 		        <td>{{$category->status}}</td>
 		        <td>{{$category->created_at->diffForHumans()}}</td>
 		        <td>
-		        	<a class="btn btn-primary" href="categories/{{$category->id}}/edit">Edit</a>
-		        	<a class="btn btn-danger" href="categories/{{$category->id}}">Delete</a>
+		        	<a class="btn btn-primary" href="{{ route('admin.get_edit_category',['category'=> $category->id]) }}">Edit</a>
+		        	<a class="btn btn-danger" href="{{ route('admin.get_delete_category', ['category'=>$category->id]) }}">Delete</a>
 		        </td>
 		      </tr>
 		    @endforeach
