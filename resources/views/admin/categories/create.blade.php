@@ -7,7 +7,7 @@
 		<form action="{{route('admin.post_create_categories')}}" method="post">
 			@csrf
 		    <div class="form-group">
-		      <label for="name">Email:</label>
+		      <label for="name">Category Title:</label>
 		      <input type="text" class="form-control" id="name" placeholder="Enter category name" name="name">
 		    </div>
 		    <div class="form-group">
