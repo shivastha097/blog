@@ -31,7 +31,7 @@
 								<td>
 									<img src="{{ asset("uploads/$post->image") }}" alt="" height="100" width="100">
 								</td>
-								<td>{{$post->category_id}}</td>
+								<td>{{$post->category->name}}</td>
 								<td>{{ $post->status }}</td>
 								<td>{{$post->created_at->toFormattedDateString()}}</td>
 								<td>
