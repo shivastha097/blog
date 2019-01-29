@@ -30,6 +30,7 @@ Route::group(['prefix'=>'admin'],function(){
 		'uses'	=> 'Admin\CategoryController@destroy',
 		'as'	=>	'admin.get_delete_category'
 	]);
+
 	Route::get('posts', [
 		'uses'	=>	'Admin\PostController@index',
 		'as'	=>	'admin.posts'
@@ -40,7 +41,19 @@ Route::group(['prefix'=>'admin'],function(){
 	]);
 	Route::post('posts/create', [
 		'uses'	=>	'Admin\PostController@store',
-		'as'	=>	'admin.post_create_posts'
+		'as'	=>	'admin.post_create_post'
+	]);
+	Route::get('posts/{post}/edit', [
+		'uses'	=>	'Admin\PostController@edit',
+		'as'	=>	'admin.get_edit_post'
+	]);
+	Route::post('posts/{post}/edit', [
+		'uses'	=>	'Admin\PostController@update',
+		'as'	=>	'admin.post_edit_post'
+	]);
+	Route::get('posts/{post})', [
+		'uses'	=>	'Admin\PostController@destroy',
+		'as'	=>	'admin.delete_post'
 	]);
 
 });

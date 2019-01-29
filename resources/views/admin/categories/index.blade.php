@@ -24,7 +24,7 @@
 		    @foreach($categories as $key=>$category)
 		      <tr>
 		        <td>{{$key+1}}</td>
-		        <td>{{$category->name}}<span class="badge badge-info">{{$category->posts->count()}}</span></td>
+		        <td>{{$category->name}} <span class="badge badge-info">{{$category->posts->count()}}</span></td>
 		        <td>{{$category->status}}</td>
 		        <!-- <td>{{$category->created_at->diffForHumans()}}</td> -->
 		        <td>{{$category->created_at->toFormattedDateString()}}</td>

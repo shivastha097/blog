@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Post;
 use App\Model\Category;
+use Carbon\Carbon;
 use Session;
 
 class PostController extends Controller
@@ -41,10 +42,10 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' =>  'required|min:10|max:60',
+            'title' =>  'required|min:5|max:60',
             'category_id'  => 'required',
             'description'   =>  'required',
-            'image'         =>  'required|mimes:png,jpg,jpeg,gif,svg|max:2048'
+            'image'         =>  'image|mimes:png,jpg,jpeg,gif,svg|max:2048'
         ]);
 
         $post = new Post;
@@ -84,7 +85,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $post = Post::find($id);
+        return view('admin.posts.edit', compact(['post', 'categories']));
     }
 
     /**
@@ -96,7 +99,29 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' =>  'required|min:5|max:60',
+            'category_id'   =>  'required',
+            'status'    =>  'required',
+            'description'   =>  'required',
+            'image'     =>  'image|mimes:png,jpg,jpeg,gif,svg|max:2048'
+        ]);
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->category_id = $request->category_id;
+        $post->status = $request->status;
+        $post->description = $request->description;
+        if ($request->hasFile('image'))
+            {
+                $file = $request->file('image');
+                $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString()); 
+                $name = $timestamp. '-' .$file->getClientOriginalName();
+                $file->move(public_path('uploads'), $name); 
+                $post->image = $name;             
+            }   
+        $post->save();
+        Session::flash('msg', 'Post is successfully updated');
+        return redirect()->route('admin.posts');
     }
 
     /**
@@ -107,6 +132,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+        Session::flash('msg', 'Post deleted successfully');
+        return redirect()->route('admin.posts');
     }
 }

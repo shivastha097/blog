@@ -20,6 +20,7 @@
 		    <div class="form-group">
 		      	<label for="category">Category:</label>
 		      	<select class="form-control" name="category_id">
+		      		<option>---Select the Category---</option>
 		      		@foreach($categories as $category)
 		      			<option value="{{$category->id}}">{{$category->name}}</option>
 		      		@endforeach
@@ -36,6 +37,7 @@
 		    <div class="form-group">
 		      	<label for="pwd">Status:</label>
 		      	<select class="form-control" name="status">
+		      		<option>---Select the Status---</option>
 		      		<option value="active">Active</option>
 		      		<option value="inactive">Inactive</option>
 		      	</select>

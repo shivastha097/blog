@@ -36,8 +36,8 @@
 								<td>{{$post->created_at->toFormattedDateString()}}</td>
 								<td>
 									<a href="#" class="btn btn-primary">View</a>
-									<a href="#" class="btn btn-primary">Edit</a>
-									<a href="#" class="btn btn-danger">Delete</a>
+									<a href="{{route('admin.get_edit_post', ['post'=>$post->id])}}" class="btn btn-primary">Edit</a>
+									<a href="{{route('admin.delete_post',['post'=>$post->id])}}" class="btn btn-danger">Delete</a>
 								</td>
 							</tr>
 			   			@endforeach
