@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Post;
 use App\Model\Category;
+use App\User;
 use Carbon\Carbon;
 use Session;
+use Auth;
 
 class PostController extends Controller
 {
@@ -18,8 +20,9 @@ class PostController extends Controller
      */
     public function index()
     {
+        $user = User::find(Auth()->id());
         $posts = Post::all();
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.posts.index', compact(['posts', 'user']));
     }
 
     /**
@@ -49,6 +52,7 @@ class PostController extends Controller
         ]);
 
         $post = new Post;
+        $post->user_id = Auth()->id();
         $post->title = $title = $request->title;
         $post->slug = str_slug($title);
         $post->description = $request->description;
@@ -113,13 +117,13 @@ class PostController extends Controller
         $post->status = $request->status;
         $post->description = $request->description;
         if ($request->hasFile('image'))
-            {
-                $file = $request->file('image');
-                $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString()); 
-                $name = $timestamp. '-' .$file->getClientOriginalName();
-                $file->move(public_path('uploads'), $name); 
-                $post->image = $name;             
-            }   
+        {
+            $file = $request->file('image');
+            $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString()); 
+            $name = $timestamp. '-' .$file->getClientOriginalName();
+            $file->move(public_path('uploads'), $name); 
+            $post->image = $name;             
+        }   
         $post->save();
         Session::flash('msg', 'Post is successfully updated');
         return redirect()->route('admin.posts');

@@ -5,7 +5,7 @@
 
       	<h1 class="mt-4">Title : {{$post->title}}</h1>
 
-      	<p class="lead">by <a href="#">Start Bootstrap</a></p>
+      	<p class="lead">by <a href="#">{{$post->user->name}}</a></p>
 
       	<hr>
       	<p>Posted on <span>{{$post->created_at->toFormattedDateString()}}</span> | Category: <span><a href="#">{{$post->category->name}}</a></span></p>

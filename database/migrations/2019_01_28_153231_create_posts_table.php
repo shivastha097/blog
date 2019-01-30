@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->string('status')->default('inactive');
             $table->text('description');
             $table->integer('category_id');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }
