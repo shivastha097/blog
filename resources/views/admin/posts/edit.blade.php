@@ -1,5 +1,6 @@
 @extends('layouts.admin.index')
 @section('content')
+	@include('layouts.admin.snippets.error-message')
 	<div class="panel panel-default">
 		<div class="panel-heading">Edit Post
 			<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
@@ -13,7 +14,7 @@
 			    <div class="form-group">
 			      	<label for="category">Category:</label>
 			      	<select class="form-control" name="category_id">
-			      		<option>---Select the Category---</option>
+			      		<option value="">---Select the Category---</option>
 			      		@foreach($categories as $category)
 			      			<option value="{{$category->id}}" {{$category->id==$post->category_id ? 'selected' : ''}}> {{$category->name}} </option>
 			      		@endforeach
@@ -30,7 +31,7 @@
 			    <div class="form-group">
 			      	<label for="pwd">Status:</label>
 			      	<select class="form-control" name="status">
-			      		<option>---Select the Status---</option>
+			      		<option value="">---Select the Status---</option>
 			      		<option value="active" {{$post->status=='active' ? 'selected' : ''}}>Active</option>
 			      		<option value="inactive" {{$post->status=='inactive' ? 'selected' : ''}}>Inactive</option>
 			      	</select>
