@@ -2,7 +2,7 @@
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">New Category
-		<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
+	</div>
 	<div class="panel-body">
 		<form action="{{route('admin.post_create_categories')}}" method="post">
 			@csrf

@@ -2,7 +2,7 @@
 @section('content')
 	<div class="panel panel-default">
 		<div class="panel-heading">Posts
-			<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
+		</div>
 		<div class="panel-body">
 			<div class="pull-right">
 				<a class="btn btn-primary" href="{{route('admin.get_create_post')}}">Create New Post</a>
@@ -35,7 +35,7 @@
 								<td>{{ $post->status }}</td>
 								<td>{{$post->created_at->toFormattedDateString()}}</td>
 								<td>
-									<a href="#" class="btn btn-primary">View</a>
+									<a href="{{route('admin.view_post',['post'=>$post->id])}}" class="btn btn-primary">View</a>
 									<a href="{{route('admin.get_edit_post', ['post'=>$post->id])}}" class="btn btn-primary">Edit</a>
 									<a href="{{route('admin.delete_post',['post'=>$post->id])}}" class="btn btn-danger">Delete</a>
 								</td>

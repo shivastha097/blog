@@ -2,7 +2,7 @@
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">Categories
-		<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
+	</div>
 	<div class="panel-body">
 		<div class="pull-right">
 			<a class="btn btn-primary" href="categories/create">Create New Category</a>

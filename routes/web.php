@@ -5,7 +5,7 @@ Route::get('/', function () {
     return view('layouts.admin.index');
 });
 
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 	Route::get('categories',[
 		'uses'=>'Admin\CategoryController@index',
 		'as'=>'admin.categories',
@@ -34,6 +34,10 @@ Route::group(['prefix'=>'admin'],function(){
 	Route::get('posts', [
 		'uses'	=>	'Admin\PostController@index',
 		'as'	=>	'admin.posts'
+	]);
+	Route::get('posts/{post}/view', [
+		'uses'	=>	'Admin\PostController@show',
+		'as'	=>	'admin.view_post'
 	]);
 	Route::get('posts/create', [
 		'uses'	=>	'Admin\PostController@create',

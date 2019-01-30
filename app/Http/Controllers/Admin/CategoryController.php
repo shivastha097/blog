@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Category;
 use Session;
-
+use Auth;
 class CategoryController extends Controller
 {
     public function index()

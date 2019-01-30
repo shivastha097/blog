@@ -3,7 +3,7 @@
 	@include('layouts.admin.snippets.error-message')
 	<div class="panel panel-default">
 		<div class="panel-heading">Edit Post
-			<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
+		</div>
 		<div class="panel-body">
 			<form action="{{ route('admin.post_edit_post',['post'=>$post->id]) }}" method="post" enctype="multipart/form-data">
 				@csrf
