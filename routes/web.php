@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 	Route::get('categories',[
 		'uses'=>'Admin\CategoryController@index',
@@ -86,9 +83,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 		'uses'	=>	'Admin\AdminController@destroy',
 		'as'	=>	'user.delete_user'
 	]);	
-});
-
-Route::group(['prefix'=>'users'], function(){
 	Route::get('profile', [
 		'uses'	=>	'Admin\UserController@show',
 		'as'	=>	'user.view_profile'
@@ -98,7 +92,27 @@ Route::group(['prefix'=>'users'], function(){
 		'as'	=>	'user.get_edit_profile'
 	]);
 	Route::post('profile/{user}/edit', [
-		'uses'	=>	'Admin\UserController@update',
+		'uses'	=>	'Admin\UserCo1ntroller@update',
+		'as'	=>	'user.post_edit_profile'
+	]);
+});
+
+
+Route::group(['prefix'=>'users', 'middleware'=>'auth'], function(){
+	Route::get('posts', [
+		'uses'	=>	'User\PostController@index',
+		'as'	=>	'users.posts'
+	]);
+	Route::get('profile', [
+		'uses'	=>	'Admin\UserController@show',
+		'as'	=>	'user.view_profile'
+	]);
+	Route::get('profile/{user}/edit', [
+		'uses'	=>	'Admin\UserController@edit',
+		'as'	=>	'user.get_edit_profile'
+	]);
+	Route::post('profile/{user}/edit', [
+		'uses'	=>	'Admin\UserCo1ntroller@update',
 		'as'	=>	'user.post_edit_profile'
 	]);
 });

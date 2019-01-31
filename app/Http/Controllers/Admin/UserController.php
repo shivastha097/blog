@@ -17,8 +17,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
+        $id = Auth()->id();
         $user = User::find($id);
         return view('admin.profiles.index', compact('user'));
     }
