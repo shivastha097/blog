@@ -59,32 +59,45 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 	]);
 
 	Route::get('users',[
-		'uses'	=>	'Admin\UserController@index',
+		'uses'	=>	'Admin\AdminController@index',
 		'as'	=>	'admin.users'
 	]);
 	Route::get('users/create', [
-		'uses'	=>	'Admin\UserController@create',
+		'uses'	=>	'Admin\AdminController@create',
 		'as'	=>	'user.get_create_user'
 	]);
 	Route::post('users/create', [
-		'uses'	=>	'Admin\UserController@store',
+		'uses'	=>	'Admin\AdminController@store',
 		'as'	=>	'user.post_create_user'
 	]);
 	Route::get('show/{user}', [
-		'uses'	=>	'Admin\UserController@show',
+		'uses'	=>	'Admin\AdminController@show',
 		'as'	=>	'user.show_user'
 	]);
 	Route::get('users/{user}/edit', [
-		'uses'	=>	'Admin\UserController@edit',
+		'uses'	=>	'Admin\AdminController@edit',
 		'as'	=>	'user.get_edit_user'
 	]);
 	Route::post('users/{user}/edit', [
-		'uses'	=>	'Admin\UserController@update',
+		'uses'	=>	'Admin\AdminController@update',
 		'as'	=>	'user.post_edit_user'
 	]);
 	Route::get('users/{user}', [
-		'uses'	=>	'Admin\UserController@destroy',
+		'uses'	=>	'Admin\AdminController@destroy',
 		'as'	=>	'user.delete_user'
+	]);
+
+	Route::get('users/profile/{user}', [
+		'uses'	=>	'Admin\UserController@show',
+		'as'	=>	'user.view_profile'
+	]);
+	Route::get('users/profile/{user}/edit', [
+		'uses'	=>	'Admin\UserController@edit',
+		'as'	=>	'user.get_edit_profile'
+	]);
+	Route::post('users/profile/{user}/edit', [
+		'uses'	=>	'Admin\UserController@update',
+		'as'	=>	'user.post_edit_profile'
 	]);
 	
 });
