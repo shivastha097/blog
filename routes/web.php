@@ -1,9 +1,7 @@
 <?php
 
 
-Route::get('/', function () {
-    return view('layouts.admin.index');
-});
+
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 	Route::get('categories',[

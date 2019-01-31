@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('contact_no')->nullable();
             $table->string('status')->default('inactive');
+            $table->boolean('isAdmin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
