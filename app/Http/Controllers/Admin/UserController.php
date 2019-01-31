@@ -29,8 +29,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
+        $id=Auth::id();
         $user = User::find($id);
         return view('admin.profiles.edit', compact('user'));
     }

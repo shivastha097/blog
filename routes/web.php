@@ -85,21 +85,22 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 	Route::get('users/{user}', [
 		'uses'	=>	'Admin\AdminController@destroy',
 		'as'	=>	'user.delete_user'
-	]);
+	]);	
+});
 
-	Route::get('users/profile/{user}', [
+Route::group(['prefix'=>'users'], function(){
+	Route::get('profile', [
 		'uses'	=>	'Admin\UserController@show',
 		'as'	=>	'user.view_profile'
 	]);
-	Route::get('users/profile/{user}/edit', [
+	Route::get('profile/{user}/edit', [
 		'uses'	=>	'Admin\UserController@edit',
 		'as'	=>	'user.get_edit_profile'
 	]);
-	Route::post('users/profile/{user}/edit', [
+	Route::post('profile/{user}/edit', [
 		'uses'	=>	'Admin\UserController@update',
 		'as'	=>	'user.post_edit_profile'
 	]);
-	
 });
 
 Auth::routes();
