@@ -103,6 +103,14 @@ Route::group(['prefix'=>'users', 'middleware'=>'auth'], function(){
 		'uses'	=>	'User\PostController@index',
 		'as'	=>	'users.posts'
 	]);
+	Route::get('posts/create', [
+		'uses'	=>	'User\PostController@create',
+		'as'	=>	'user.get_create_post'
+	]);
+	Route::post('posts/create', [
+		'uses'	=>	'User\PostController@store',
+		'as'	=>	'user.post_create_post'
+	]);
 	Route::get('profile', [
 		'uses'	=>	'Admin\UserController@show',
 		'as'	=>	'user.view_profile'

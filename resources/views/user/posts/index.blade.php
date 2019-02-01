@@ -4,8 +4,10 @@
 	<div class="panel-heading">My Posts</div>
 	<div class="panel-body">
 		<div class="pull-right" style="margin-bottom: 20px">
-			<a href="" class="btn btn-primary">Add New Post</a>
+			<a href="{{route('user.get_create_post')}}" class="btn btn-primary">Add New Post</a>
 		</div>
+		<div class="clear"></div>
+		@include('layouts.admin.snippets.session-message')
 		<table class="table table-bordered">
 			<thead>
 				<tr>
