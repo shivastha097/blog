@@ -26,11 +26,11 @@
 						<tr>
 							<td>{{$key+1}}</td>
 							<td>{{$post->title}}</td>
-							<td>{{$post->image}}</td>
+							<td><img src="{{asset('uploads/'.$post->image)}}" alt="" height="80" width="80"></td>
 							<td>{{$post->category->name}}</td>
 							<td>{{$post->created_at}}</td>
 							<td>
-								<a href="#" class="btn btn-primary">View</a>
+								<a href="{{route('user.view_post', ['post'=>$post->id])}}" class="btn btn-primary">View</a>
 								<a href="" class="btn btn-primary">Edit</a>
 								<a href="#" class="btn btn-danger">Delete</a>
 							</td>
