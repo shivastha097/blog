@@ -1,12 +1,11 @@
 @extends('layouts.admin.index')
 @section('content')
 <div class="panel panel-default">
-
 	@include('layouts.admin.snippets.error-message')
 	<div class="panel-heading">New User
 	</div>
 	<div class="panel-body">
-		<form action="{{route('user.post_create_user')}}" method="post" enctype="multipart/form-data">
+		<form action="{{route('admin.post_create_user')}}" method="post" enctype="multipart/form-data">
 			@csrf
 		    <div class="form-group">
 		      	<label>Name:</label>
@@ -26,7 +25,23 @@
 			</div>
 			<div class="form-group">
 			  	<label>Email:</label>
-			  	<input type="text" class="form-control" name="email">
+			  	<input type="email" class="form-control" name="email">
+			</div>
+			<div class="form-group">
+			  	<label>Password:</label>
+			  	<input type="password" class="form-control" name="password">
+			</div>
+			<div class="form-group">
+			  	<label>Confirm Password:</label>
+			  	<input type="password" class="form-control" name="password_confirmation">
+			</div>
+			<div class="form-group">
+				<label for="">User Type:</label>
+				<select name="isAdmin" id="" class="form-control">
+					<option value="">---Select User Type---</option>
+					<option value="1">Admin</option>
+					<option value="0">User</option>
+				</select>
 			</div>
 			<div class="form-group">
 			  	<label>Facebok Url:</label>

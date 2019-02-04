@@ -1,4 +1,4 @@
-@extends('layouts.admin.index')
+@extends('layouts.user.index')
 @section('content')
 <div class="panel panel-default">
 
@@ -6,7 +6,7 @@
 	<div class="panel-heading">Edit Profile
 	</div>
 	<div class="panel-body">
-		<form action="{{route('admin.post_edit_profile',['user'=>$user->id])}}" method="post" enctype="multipart/form-data">
+		<form action="{{route('user.post_edit_profile',['user'=>$user->id])}}" method="post" enctype="multipart/form-data">
 			@csrf
 		    <div class="form-group">
 		      	<label>Name:</label>

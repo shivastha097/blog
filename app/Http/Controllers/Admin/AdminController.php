@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\User;
 use Session;
+use Hash;
 
 class AdminController extends Controller
 {
@@ -42,6 +43,8 @@ class AdminController extends Controller
         $this->validate($request, [
             'name'  =>  'required',
             'avatar' =>  'image|mimes:png,jpg,bmp,jpeg,svg|max:2048',
+            'password'  =>  'required|confirmed',
+            'password_confirmation' =>  'required_with:password',
             'address'   =>  'nullable|min:4',
             'contact_no'   =>   'nullable|numeric',
             'facebook_url'  =>  'nullable|url',
@@ -61,6 +64,7 @@ class AdminController extends Controller
         $user->twitter_url = $request->twitter_url;
         $user->linkedin_url =  $request->linkedin_url;
         $user->description = $request->description;
+        $user->password = Hash::make($request->password);
         $user->status = $request->status;
         if($request->hasFile('avatar')){
             $imageName = time().'.'.request()->avatar->getClientOriginalExtension();

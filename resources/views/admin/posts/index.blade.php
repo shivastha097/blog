@@ -42,8 +42,8 @@
 							</tr>
 			   			@endforeach
 			   		@else
-			   			<tr>
-			   				<td colspan="6">No posts available.</td>
+			   			<tr class="text-center">
+			   				<td colspan="7">No posts available.</td>
 			   			</tr>
 			   		@endif
 			    </tbody>

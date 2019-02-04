@@ -5,7 +5,7 @@
 		</div>
 		<div class="panel-body">
 			<div class="pull-right">
-				<a class="btn btn-primary" href="{{route('user.get_create_user')}}">Create New User</a>
+				<a class="btn btn-primary" href="{{route('admin.get_create_user')}}">Create New User</a>
 			</div>
 			<br>
 			<br>
@@ -37,9 +37,9 @@
 								<td>{{ $user->contact_no }}</td>
 								<td>{{$user->created_at->toFormattedDateString()}}</td>
 								<td>
-									<a href="{{route('user.show_user', ['user'=>$user->id])}}" class="btn btn-primary">View</a>
-									<a href="{{route('user.get_edit_user', ['user'=>$user->id])}}" class="btn btn-primary">Edit</a>
-									<a href="{{route('user.delete_user', ['user'=>$user->id])}}" class="btn btn-danger">Delete</a>
+									<a href="{{route('admin.show_user', ['user'=>$user->id])}}" class="btn btn-primary">View</a>
+									<a href="{{route('admin.get_edit_user', ['user'=>$user->id])}}" class="btn btn-primary">Edit</a>
+									<a href="{{route('admin.delete_user', ['user'=>$user->id])}}" class="btn btn-danger">Delete</a>
 								</td>
 							</tr>
 			   			@endforeach

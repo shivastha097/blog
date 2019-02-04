@@ -15,6 +15,7 @@
 					<th>Title</th>
 					<th>Image</th>
 					<th>Category</th>
+					<th>Status</th>
 					<th>Created At</th>
 					<th>Action</th>
 				</tr>
@@ -28,10 +29,11 @@
 							<td>{{$post->title}}</td>
 							<td><img src="{{asset('uploads/'.$post->image)}}" alt="" height="80" width="80"></td>
 							<td>{{$post->category->name}}</td>
+							<td>{{$post->status}}</td>
 							<td>{{$post->created_at}}</td>
 							<td>
 								<a href="{{route('user.view_post', ['post'=>$post->id])}}" class="btn btn-primary">View</a>
-								<a href="" class="btn btn-primary">Edit</a>
+								<a href="{{route('user.get_edit_post', ['post'=>$post->id])}}" class="btn btn-primary">Edit</a>
 								<a href="#" class="btn btn-danger">Delete</a>
 							</td>
 						</tr>

@@ -17,7 +17,7 @@
 			</div>
 
 			<a href="" class="btn btn-primary">Back</a>
-			<a href="" class="btn btn-warning">Edit</a>
+			<a href="{{route('user.get_edit_post', ['post'=>$post->id])}}" class="btn btn-warning">Edit</a>
 		</div>
 	</div>
 </div>

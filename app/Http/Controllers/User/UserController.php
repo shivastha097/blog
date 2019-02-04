@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         $id = Auth()->id();
         $user = User::find($id);
-        return view('admin.profiles.index', compact('user'));
+        return view('user.profiles.index', compact('user'));
     }
 
     /**
@@ -35,7 +35,7 @@ class UserController extends Controller
     {
         $id=Auth::id();
         $user = User::find($id);
-        return view('admin.profiles.edit', compact('user'));
+        return view('user.profiles.edit', compact('user'));
     }
 
     /**
@@ -47,7 +47,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $id = Auth::id();
         $this->validate($request, [
             'name'  =>  'required',
             'avatar' =>  'image|mimes:png,jpg,bmp,jpeg,svg|max:2048',
@@ -78,7 +77,7 @@ class UserController extends Controller
         $user->save();
 
         Session::flash('msg', 'Profile updated successfully');
-        return redirect()->route('admin.users');
+        return redirect()->route('user.posts');
     }
 
 }

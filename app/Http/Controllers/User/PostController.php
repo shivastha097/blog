@@ -86,7 +86,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $post = Post::find($id);
+        return view('user.posts.edit', compact(['post', 'categories']));
     }
 
     /**
@@ -98,7 +100,30 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|min:5',
+            'category_id'   =>  'required',
+            'status'    =>  'required',
+            'image' =>  'image|mimes:jpg,jpeg,png,svg,gif|max:2048',
+            'description'   =>  'required|min:10'
+        ]);
+        $post = Post::find($id);
+        $post->user_id = Auth()->id();
+        $post->title = $title = $request->title;
+        $post->slug = str_slug($title);
+        $post->category_id = $request->category_id;
+        $post->status = $request->status;
+        $post->description = $request->description;
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString()); 
+            $name = $timestamp. '-' .$file->getClientOriginalName();
+            $file->move(public_path('uploads'), $name); 
+            $post->image = $name;   
+        }
+        $post->save();
+        Session::flash('msg', 'Post successfully updated');
+        return redirect()->route('users.posts');
     }
 
     /**

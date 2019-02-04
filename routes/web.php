@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+Route::group(['prefix'=>'admin','middleware'=>['auth','checkrole']],function(){
 	Route::get('categories',[
 		'uses'=>'Admin\CategoryController@index',
 		'as'=>'admin.categories',
@@ -61,41 +61,42 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 	]);
 	Route::get('users/create', [
 		'uses'	=>	'Admin\AdminController@create',
-		'as'	=>	'user.get_create_user'
+		'as'	=>	'admin.get_create_user'
 	]);
 	Route::post('users/create', [
 		'uses'	=>	'Admin\AdminController@store',
-		'as'	=>	'user.post_create_user'
+		'as'	=>	'admin.post_create_user'
 	]);
 	Route::get('show/{user}', [
 		'uses'	=>	'Admin\AdminController@show',
-		'as'	=>	'user.show_user'
+		'as'	=>	'admin.show_user'
 	]);
 	Route::get('users/{user}/edit', [
 		'uses'	=>	'Admin\AdminController@edit',
-		'as'	=>	'user.get_edit_user'
+		'as'	=>	'admin.get_edit_user'
 	]);
 	Route::post('users/{user}/edit', [
 		'uses'	=>	'Admin\AdminController@update',
-		'as'	=>	'user.post_edit_user'
+		'as'	=>	'admin.post_edit_user'
 	]);
 	Route::get('users/{user}', [
 		'uses'	=>	'Admin\AdminController@destroy',
-		'as'	=>	'user.delete_user'
+		'as'	=>	'admin.delete_user'
 	]);	
 	Route::get('profile', [
 		'uses'	=>	'Admin\UserController@show',
-		'as'	=>	'user.view_profile'
+		'as'	=>	'admin.view_profile'
 	]);
 	Route::get('profile/{user}/edit', [
 		'uses'	=>	'Admin\UserController@edit',
-		'as'	=>	'user.get_edit_profile'
+		'as'	=>	'admin.get_edit_profile'
 	]);
 	Route::post('profile/{user}/edit', [
-		'uses'	=>	'Admin\UserCo1ntroller@update',
-		'as'	=>	'user.post_edit_profile'
+		'uses'	=>	'Admin\UserController@update',
+		'as'	=>	'admin.post_edit_profile'
 	]);
 });
+
 
 
 Route::group(['prefix'=>'users', 'middleware'=>'auth'], function(){
@@ -115,16 +116,24 @@ Route::group(['prefix'=>'users', 'middleware'=>'auth'], function(){
 		'uses'	=>	'User\PostController@show',
 		'as'	=>	'user.view_post'
 	]);
+	Route::get('posts/edit/{post}', [
+		'uses'	=>	'User\PostController@edit',
+		'as'	=>	'user.get_edit_post'
+	]);
+	Route::post('posts/edit/{post}', [
+		'uses'	=>	'User\PostController@update',
+		'as'	=>	'user.post_edit_post'
+	]);
 	Route::get('profile', [
-		'uses'	=>	'Admin\UserController@show',
+		'uses'	=>	'User\UserController@show',
 		'as'	=>	'user.view_profile'
 	]);
 	Route::get('profile/{user}/edit', [
-		'uses'	=>	'Admin\UserController@edit',
+		'uses'	=>	'User\UserController@edit',
 		'as'	=>	'user.get_edit_profile'
 	]);
 	Route::post('profile/{user}/edit', [
-		'uses'	=>	'Admin\UserCo1ntroller@update',
+		'uses'	=>	'User\UserController@update',
 		'as'	=>	'user.post_edit_profile'
 	]);
 });
@@ -132,3 +141,9 @@ Route::group(['prefix'=>'users', 'middleware'=>'auth'], function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/unauthorized',function(){
+	return "unauthorized";
+
+})->name('unauthorized');

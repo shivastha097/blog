@@ -6,7 +6,7 @@
         <div class="row">
         	<div class="col-md-12">
         		<div class="pull-right" style="margin-bottom: 20px">
-        		    <a class="btn btn-primary" href="{{route('user.get_edit_user', ['user'=>$user->id])}}">Edit Profile</a>
+        		    <a class="btn btn-primary" href="{{route('admin.get_edit_user', ['user'=>$user->id])}}">Edit Profile</a>
         		</div>
         	</div>
             <div class="col-md-3">

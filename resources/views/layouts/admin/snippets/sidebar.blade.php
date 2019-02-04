@@ -14,7 +14,7 @@
 		<li class=""><a href="{{route('admin.categories')}}"><em class="fa fa-list-alt">&nbsp;</em> Category</a></li>
 		<li class="active"><a href="{{route('admin.posts')}}"><i class="fa fa-file-text"></i> Posts</a></li>
 		<li><a href="{{route('admin.users')}}"><i class="fa fa-user-o" aria-hidden="true"></i> Users</a></li>
-		<li><a href="{{route('user.view_profile')}}"><i class="fa fa-cog" aria-hidden="true"></i> Profile</a></li>
+		<li><a href="{{route('admin.view_profile')}}"><i class="fa fa-cog" aria-hidden="true"></i> Profile</a></li>
 		<li>
 			<a href="{{ route('logout') }}"
 			   onclick="event.preventDefault();
