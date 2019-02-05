@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix'=>'admin','middleware'=>['auth','checkrole']],function(){
+Route::group(['prefix'=>'admin','middleware'=>['auth','checkadmin']],function(){
 	Route::get('categories',[
 		'uses'=>'Admin\CategoryController@index',
 		'as'=>'admin.categories',
@@ -87,7 +87,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','checkrole']],function(){
 		'uses'	=>	'Admin\UserController@show',
 		'as'	=>	'admin.view_profile'
 	]);
-	Route::get('profile/{user}/edit', [
+	Route::get('profile/edit', [
 		'uses'	=>	'Admin\UserController@edit',
 		'as'	=>	'admin.get_edit_profile'
 	]);
@@ -99,7 +99,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','checkrole']],function(){
 
 
 
-Route::group(['prefix'=>'users', 'middleware'=>'auth'], function(){
+Route::group(['prefix'=>'users', 'middleware'=>['auth', 'checkuser'] ], function(){
 	Route::get('posts', [
 		'uses'	=>	'User\PostController@index',
 		'as'	=>	'users.posts'
@@ -140,8 +140,19 @@ Route::group(['prefix'=>'users', 'middleware'=>'auth'], function(){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/about', function(){
+	return view('public.about');
+});
+
+Route::get('/contact', function(){
+	return view('public.contact');
+});
+
+Route::get('/post', function(){
+	return view('public.post');
+});
 
 Route::get('/unauthorized',function(){
 	return "unauthorized";

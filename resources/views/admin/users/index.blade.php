@@ -17,8 +17,7 @@
 			        <th>Name</th>
 			        <th>Image</th>
 			        <th>Email Address</th>
-			        <th>Address</th>
-			        <th>Contact no.</th>
+			        <th>User Type</th>
 			        <th>Created At</th>
 			        <th>Action</th>
 			      </tr>
@@ -33,8 +32,7 @@
 									<img src="{{ asset("uploads/users/$user->avatar") }}" alt="" height="100" width="100">
 								</td>
 								<td>{{$user->email}}</td>
-								<td>{{$user->address}}</td>
-								<td>{{ $user->contact_no }}</td>
+								<td>{{$user->isAdmin==1 ? 'Admin' : 'User' }}</td>
 								<td>{{$user->created_at->toFormattedDateString()}}</td>
 								<td>
 									<a href="{{route('admin.show_user', ['user'=>$user->id])}}" class="btn btn-primary">View</a>

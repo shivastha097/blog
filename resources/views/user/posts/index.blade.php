@@ -40,7 +40,7 @@
 					@endforeach
 				@else
 				<tr>
-					<td class="text-center" colspan="6">No posts available</td>
+					<td class="text-center" colspan="7">No posts available</td>
 				</tr>
 				@endif
 			</tbody>

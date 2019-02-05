@@ -16,12 +16,12 @@
 		    	<input class="form-control" type="file" name="avatar">
 		    </div>
 			<div class="form-group">
-			  	<label>Address:</label>
-			  	<input type="text" class="form-control" name="address">
-			</div>
-			<div class="form-group">
-			  	<label>Contact No:</label>
-			  	<input type="text" class="form-control" name="contact_no">
+				<label for="">User Type:</label>
+				<select name="isAdmin" id="" class="form-control">
+					<option value="">---Select User Type---</option>
+					<option value="1">Admin</option>
+					<option value="0">User</option>
+				</select>
 			</div>
 			<div class="form-group">
 			  	<label>Email:</label>
@@ -36,12 +36,12 @@
 			  	<input type="password" class="form-control" name="password_confirmation">
 			</div>
 			<div class="form-group">
-				<label for="">User Type:</label>
-				<select name="isAdmin" id="" class="form-control">
-					<option value="">---Select User Type---</option>
-					<option value="1">Admin</option>
-					<option value="0">User</option>
-				</select>
+			  	<label>Address:</label>
+			  	<input type="text" class="form-control" name="address">
+			</div>
+			<div class="form-group">
+			  	<label>Contact No:</label>
+			  	<input type="text" class="form-control" name="contact_no">
 			</div>
 			<div class="form-group">
 			  	<label>Facebok Url:</label>

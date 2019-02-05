@@ -11,6 +11,15 @@
 		      <input type="text" class="form-control" id="name" placeholder="Enter category name" name="name">
 		    </div>
 		    <div class="form-group">
+		    	<label for="">Parent Category</label>
+		    	<select name="parent_id" id="" class="form-control">
+		    		<option value="">--Select Parent Category---</option>
+		    		@foreach($categories as $category)
+		    			<option value="{{$category->id}}">{{$category->name}}</option>
+		    		@endforeach
+		    	</select>
+		    </div>
+		    <div class="form-group">
 		      <label for="pwd">Status:</label>
 		      <select class="form-control" name="status">
 		      	<option value="active">Active</option>

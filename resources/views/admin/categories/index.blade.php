@@ -15,6 +15,7 @@
 		      <tr>
 		        <th>S.N.</th>
 		        <th>Name</th>
+		        <th>Parent Name</th>
 		        <th>Status</th>
 		        <th>Created At</th>
 		        <th>Action</th>
@@ -26,6 +27,7 @@
 		    	  <tr>
 		    	    <td>{{$key+1}}</td>
 		    	    <td>{{$category->name}} <span class="badge badge-info">{{$category->posts->count()}}</span></td>
+		    	    <td>{{$category->parent['name']}}</td>
 		    	    <td>{{$category->status}}</td>
 		    	    <!-- <td>{{$category->created_at->diffForHumans()}}</td> -->
 		    	    <td>{{$category->created_at->toFormattedDateString()}}</td>
@@ -37,7 +39,7 @@
 		    	@endforeach
 		    @else
 		    	<tr class="text-center">
-		    		<td colspan="5">No Categories Available</td>
+		    		<td colspan="6">No Categories Available</td>
 		    	</tr>
 		    @endif
 		    </tbody>

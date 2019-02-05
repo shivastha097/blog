@@ -16,6 +16,18 @@
 		    	<label>Select image file</label>
 		    	<input class="form-control" type="file" name="avatar" value="{{$user->avatar}}">
 		    </div>
+		    <div class="form-group">
+		    	<label for="">User Type:</label>
+		    	<select name="isAdmin" id="" class="form-control">
+		    		<option value="">---Select User Type---</option>
+		    		<option value="1" {{$user->isAdmin==1 ? 'selected' : '' }}>Admin</option>
+		    		<option value="0" {{$user->isAdmin==0 ? 'selected' : '' }}>User</option>
+		    	</select>
+		    </div>
+			<div class="form-group">
+			  	<label>Email:</label>
+			  	<input type="text" class="form-control" name="email" value="{{$user->email}}">
+			</div>
 			<div class="form-group">
 			  	<label>Address:</label>
 			  	<input type="text" class="form-control" name="address" value="{{$user->address}}">
@@ -23,10 +35,6 @@
 			<div class="form-group">
 			  	<label>Contact No:</label>
 			  	<input type="text" class="form-control" name="contact_no" value="{{$user->contact_no}}">
-			</div>
-			<div class="form-group">
-			  	<label>Email:</label>
-			  	<input type="text" class="form-control" name="email" value="{{$user->email}}">
 			</div>
 			<div class="form-group">
 			  	<label>Facebok Url:</label>

@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\User;
 use Session;
 use Hash;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -18,7 +19,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('id', '!=',Auth::id())->get();
         return view('admin.users.index', compact('users'));
     }
 
@@ -66,6 +67,7 @@ class AdminController extends Controller
         $user->description = $request->description;
         $user->password = Hash::make($request->password);
         $user->status = $request->status;
+        $user->isAdmin = $request->isAdmin;
         if($request->hasFile('avatar')){
             $imageName = time().'.'.request()->avatar->getClientOriginalExtension();
             request()->avatar->move(public_path('uploads/users'), $imageName);
@@ -133,6 +135,7 @@ class AdminController extends Controller
         $user->linkedin_url =  $request->linkedin_url;
         $user->description = $request->description;
         $user->status = $request->status;
+        $user->isAdmin = $request->isAdmin;
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');
             $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString()); 

@@ -17,11 +17,12 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug')->default();
-            $table->string('image')->default();
+            $table->string('featured_image')->default();
             $table->string('status')->default('inactive');
             $table->text('description');
             $table->integer('category_id');
             $table->unsignedInteger('user_id');
+            $table->string('image_id')->nullable();
             $table->timestamps();
         });
     }

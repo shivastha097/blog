@@ -17,7 +17,8 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('admin.categories.create');
+        $categories = Category::all();
+        return view('admin.categories.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -31,6 +32,7 @@ class CategoryController extends Controller
         $category->name=$name=$request->name;
         $category->status=$request->status;
         $category->slug=str_slug($name);
+        $category->parent_id = $request->parent_id;
         $category->save();
         Session::flash('msg','New Category is successfully added.');
         return redirect()->route('admin.categories');
@@ -57,6 +59,7 @@ class CategoryController extends Controller
         $category->name = $name = $request->name;
         $category->status = $request->status;
         $category->slug = str_slug($name);
+        $category->parent_id = $request->parent_id;
         $category->save();
 
         Session::flash('msg', 'Category updated successully.');
