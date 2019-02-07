@@ -12,6 +12,10 @@ use Auth;
 
 class AdminController extends Controller
 {
+
+    public function dashboard(){
+        return view('layouts.admin.index');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -120,7 +124,6 @@ class AdminController extends Controller
             'facebook_url'  =>  'nullable|url',
             'twitter_url'   =>  'nullable|url',
             'linkedin_url'  =>  'nullable|url',
-            'description'   =>  'min:5',
             'email'         =>  'required|email'
         ]);
 

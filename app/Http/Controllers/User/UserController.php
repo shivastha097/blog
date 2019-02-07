@@ -12,6 +12,10 @@ use Auth;
 class UserController extends Controller
 {
 
+    public function dashboard() {
+        return view('user.dashboard');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -77,7 +81,7 @@ class UserController extends Controller
         $user->save();
 
         Session::flash('msg', 'Profile updated successfully');
-        return redirect()->route('user.posts');
+        return redirect()->route('user.dashboard');
     }
 
 }

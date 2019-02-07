@@ -20,8 +20,9 @@
 		    	</select>
 		    </div>
 		    <div class="form-group">
-		      <label for="pwd">Status:</label>
+		      <label>Status:</label>
 		      <select class="form-control" name="status">
+		      	<option value="">---Select Status---</option>
 		      	<option value="active">Active</option>
 		      	<option value="inactive">Inactive</option>
 		      </select>

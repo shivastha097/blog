@@ -11,9 +11,11 @@
 			<h2>{{$post->title}}</h2>
 			<p>Category: <span>{{$post->category->name}}</span> | Status: <span>{{$post->status}}</span></p>
 			<hr>
+			@if($post->image)
 			<img src="{{asset('uploads/'.$post->image)}}" alt="Post image" height="300" width="50%">
+			@endif
 			<div style="margin: 20px 0">
-				{{$post->description}}
+				{!! $post->description !!}
 			</div>
 
 			<a href="" class="btn btn-primary">Back</a>

@@ -20,14 +20,14 @@
 			      		@endforeach
 			      	</select>
 			    </div>
-			    <div class="form-gruop">
+			    <div class="form-gruop" style="margin-bottom: 20px">
 			    	<label>Select image file</label>
 			    	<input class="form-control" type="file" name="image" value="{{$post->image}}">
 			    </div>
 			    <div class="form-group">
-			      <label for="description">Description:</label>
-			      <textarea class="form-control" name="description" cols="30" rows="10">{{$post->description}}</textarea>
-			    </div>
+    			    <label for="">Description:</label>
+    			    <textarea name="description" class="form-control summernote">{!! $post->description !!}</textarea>
+    		    </div>
 			    <div class="form-group">
 			      	<label for="pwd">Status:</label>
 			      	<select class="form-control" name="status">

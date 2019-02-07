@@ -1,7 +1,7 @@
 @extends('layouts.admin.index')
 @section('content')
 	<div class="panel panel-default">
-		<div class="panel-heading">My Account
+		<div class="panel-heading">Users
 		</div>
 		<div class="panel-body">
 			<div class="pull-right">
@@ -42,8 +42,8 @@
 							</tr>
 			   			@endforeach
 			   		@else
-			   			<tr>
-			   				<td colspan="6">No posts available.</td>
+			   			<tr class="text-center">
+			   				<td colspan="7">No posts available.</td>
 			   			</tr>
 			   		@endif
 			    </tbody>

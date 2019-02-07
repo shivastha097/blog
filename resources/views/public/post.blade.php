@@ -1,13 +1,12 @@
 @extends('layouts.public.index')
 @section('content')
-
-  <header class="masthead" style="background-image: url({{asset('assets/img/post-bg.jpg')}})">
+<!-- {{asset('assets/img/post-bg.jpg')}} -->
+  <header class="masthead" style="background-image: url()">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>Man must explore, and this is exploration at its greatest</h1>
             <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
             <span class="meta">Posted by
               <a href="#">Start Bootstrap</a>
@@ -21,7 +20,10 @@
   <article>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-8 mx-auto">
+          {!! $summernote->content !!}
+        </div>
+        <!-- <div class="col-lg-8 col-md-10 mx-auto">
           <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
 
           <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
@@ -58,9 +60,32 @@
           <p>Placeholder text by
             <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
             <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+        </div> -->
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div id="disqus_thread"></div>
         </div>
       </div>
     </div>
   </article>
+
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://stha-shiva-com-np.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 @endsection

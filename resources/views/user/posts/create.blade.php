@@ -21,7 +21,7 @@
 					@endforeach
 				</select>
 			</div>
-			<div class="form-group">
+			<div class="form-group" style="margin-bottom: 20px">
 				<label>Status</label>
 				<select class="form-control" name="status">
 					<option value="active">Active</option>
@@ -29,9 +29,9 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<label>Description</label>
-				<textarea class="form-control" name="description" cols="30" rows="10"></textarea>
-			</div>
+			    <label for="">Description:</label>
+			    <textarea name="description" class="form-control summernote"></textarea>
+		    </div>
 			<input class="btn btn-primary" type="submit" value="Submit">
 			<input class="btn btn-danger" type="reset" value="Reset">
 		</form>

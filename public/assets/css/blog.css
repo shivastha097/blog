@@ -1,13 +1,13 @@
-/*!
- * Start Bootstrap - Clean Blog v5.0.3 (https://startbootstrap.com/template-overviews/clean-blog)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-clean-blog/blob/master/LICENSE)
- */
 
 body {
   font-size: 20px;
   color: #212529;
+  background-color: #F5F5F5;
   font-family: 'Lora', 'Times New Roman', serif;
+}
+
+.clear{
+  clear: both;
 }
 
 p {
@@ -42,6 +42,14 @@ a:focus, a:hover {
 blockquote {
   font-style: italic;
   color: #868e96;
+}
+
+#header{
+  padding-bottom: 20px;
+}
+
+.blog-content{
+  padding-top: 50px;
 }
 
 .section-heading {
@@ -89,8 +97,7 @@ img::-moz-selection {
 }
 
 #mainNav {
-  position: absolute;
-  border-bottom: 1px solid #e9ecef;
+  position: fixed;
   background-color: white;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -117,22 +124,23 @@ img::-moz-selection {
 
 @media only screen and (min-width: 992px) {
   #mainNav {
+    position: fixed;
     border-bottom: 1px solid transparent;
-    background: transparent;
+    background: white;
   }
   #mainNav .navbar-brand {
     padding: 10px 20px;
-    color: #fff;
+    color: #566573;
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: #0085A1;
   }
   #mainNav .navbar-nav > li.nav-item > a {
     padding: 10px 20px;
-    color: #fff;
+    color: #566573;
   }
   #mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: #0085A1;
   }
 }
 
@@ -157,6 +165,7 @@ img::-moz-selection {
     background-color: rgba(255, 255, 255, 0.9);
   }
   #mainNav.is-fixed .navbar-brand {
+    transition: 0.5s;
     color: #212529;
   }
   #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
@@ -172,6 +181,7 @@ img::-moz-selection {
     /* if the user changes the scrolling direction, we show the header */
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
+    transition: 0.5s;
   }
 }
 
@@ -417,4 +427,100 @@ footer .copyright {
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px;
+}
+
+
+.post-item a{
+  text-decoration: none;
+}
+.post-item a:hover{
+  color: #0F8CA7;
+}
+.featured-image{
+  position: relative;
+}
+
+.featured-image .like-button{
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  height: 65px;
+  width: 65px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+}
+.content{
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+.content span{
+  display: block;
+  text-align: center;
+}
+.like-count{
+  font-size: 14px;
+}
+.blog-head{
+  margin-top: 40px;
+}
+.blog-head h1{
+  font-size: 1.6em;
+  margin-bottom: 0;
+  color: #383838;
+  transition: 0.6s;
+  display: inline-block;
+}
+.blog-head h1:hover{
+  color: #0F8CA7;
+  transition: 0.6s;
+}
+.post-details{
+  margin: 15px 0;
+}
+.blog-head .tags a{
+  font-size: 12px;
+  color: #0F8CA7;
+  margin-right: 10px; 
+}
+.blog-head .tags a:hover{
+  color: black;
+}
+.blog-head .post-details img{
+  border-radius: 50%;
+}
+
+.blog-head .post-details span{
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+}
+.post-details .item{
+  margin-left: 10px;
+}
+.post-details .item:after{
+  content: "";
+  width: 12px;
+  border-bottom: 2px solid black;
+  display: inline-block;
+  margin-right: 10px;
+}
+.blog-preview{
+  font-size: 16px;
+  color: #818181
+}
+.blog-preview p{
+  margin: 0 0 20px 0;
+}
+
+.social-share i{
+  font-size: 18px;
+}
+.social-share i:hover{
+  color: #319CB3;
+}
+.social-share .social-left i{
+  margin-right: 40px;
 }

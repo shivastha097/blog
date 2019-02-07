@@ -35,9 +35,9 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<label>Description</label>
-				<textarea name="description" class="form-control" cols="30" rows="10">{{$post->description}}</textarea>
-			</div>
+			    <label for="">Description:</label>
+			    <textarea name="description" class="form-control summernote">{!! $post->description !!}</textarea>
+		    </div>
 			<input type="submit" value="Submit" class="btn btn-primary">
 		</form>
 	</div>

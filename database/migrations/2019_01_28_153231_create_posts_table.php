@@ -19,10 +19,9 @@ class CreatePostsTable extends Migration
             $table->string('slug')->default();
             $table->string('featured_image')->default();
             $table->string('status')->default('inactive');
-            $table->text('description');
+            $table->longText('description');
             $table->integer('category_id');
             $table->unsignedInteger('user_id');
-            $table->string('image_id')->nullable();
             $table->timestamps();
         });
     }

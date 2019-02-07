@@ -1,6 +1,10 @@
 <?php
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','checkadmin']],function(){
+	Route::get('dashboard', [
+		'uses'	=>	'Admin\AdminController@dashboard',
+		'as'	=>	'admin.dashboard'
+	]);
 	Route::get('categories',[
 		'uses'=>'Admin\CategoryController@index',
 		'as'=>'admin.categories',
@@ -100,6 +104,10 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','checkadmin']],function(){
 
 
 Route::group(['prefix'=>'users', 'middleware'=>['auth', 'checkuser'] ], function(){
+	Route::get('dashboard', [
+		'uses'	=>	'User\UserController@dashboard',
+		'as'	=>	'user.dashboard'
+	]);
 	Route::get('posts', [
 		'uses'	=>	'User\PostController@index',
 		'as'	=>	'users.posts'
@@ -140,7 +148,12 @@ Route::group(['prefix'=>'users', 'middleware'=>['auth', 'checkuser'] ], function
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'PostsController@posts')->name('home');
+
+Route::get('single-post/{slug}', [
+	'uses'	=>	'PostsController@post',
+	'as'	=>	'public.single_post'
+]);
 
 Route::get('/about', function(){
 	return view('public.about');
@@ -154,7 +167,16 @@ Route::get('/post', function(){
 	return view('public.post');
 });
 
+Route::post('summernoteeditor', [
+	'uses'	=>	'SummernoteController@store',
+	'as'	=>	'summernoteeditor.post'
+]);
+
 Route::get('/unauthorized',function(){
 	return "unauthorized";
 
 })->name('unauthorized');
+
+Route::get('admin', function(){
+		return 'layouts.admin.index';
+});

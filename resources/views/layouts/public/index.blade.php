@@ -29,12 +29,14 @@
 
   @include('layouts.public.snippets.footer')
 
+  <script id="dsq-count-scr" src="//stha-shiva-com-np.disqus.com/count.js" async></script>
+
   <!-- Bootstrap core JavaScript -->
   <script src="{{asset('assets/js/jquery.min.js')}}"></script>
   <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="{{asset('assets/js/clean-blog.min.js')}}"></script>
+  <script src="{{asset('assets/js/blog.js')}}"></script>
 
 </body>
 

@@ -36,13 +36,13 @@
 			  	<label>Twitter Url:</label>
 			  	<input type="text" class="form-control" name="twitter_url" value="{{$user->twitter_url}}">
 			</div>
-			<div class="form-group">
+			<div class="form-group" style="margin-bottom: 20px">
 			  	<label>LinkedIn Url:</label>
 			  	<input type="text" class="form-control" name="linkedin_url" value="{{$user->linkedin_url}}">
 			</div>
 		    <div class="form-group">
-		      <label for="description">Description:</label>
-		      <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{$user->description}}</textarea>
+			    <label for="">Description:</label>
+			    <textarea name="description" class="form-control summernote">{!! $user->description !!}</textarea>
 		    </div>
 		    <button type="submit" class="btn btn-default">Submit</button>
 		    <button type="reset" class="btn btn-danger">Reset</button>

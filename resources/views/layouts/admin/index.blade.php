@@ -7,6 +7,7 @@
 	<link href="{{asset('admin/assets/css/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{asset('admin/assets/css/font-awesome.min.css')}}" rel="stylesheet">
 	<link href="{{asset('admin/assets/css/styles.css')}}" rel="stylesheet">
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 </head>
 <body>
@@ -24,7 +25,7 @@
 		</div><!--/.row-->
 		
 		<br>
-		
+		@include('layouts.admin.snippets.error-message')
 		<div class="panel panel-container">
 			@yield('content')
 		</div>
@@ -33,6 +34,12 @@
 	<script src="{{asset('admin/assets/js/jquery-1.11.1.min.js')}}"></script>
 	<script src="{{asset('admin/assets/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('admin/assets/js/custom.js')}}"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+	<script>
+		$(document).ready(function() {
+		  $('.summernote').summernote();
+		});
+	</script>
 		
 </body>
 </html>

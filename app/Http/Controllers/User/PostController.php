@@ -58,7 +58,7 @@ class PostController extends Controller
         $post->description = $request->description;
         if($request->hasFile('image')){
             $imageName = time().'.'.request()->image->getClientOriginalExtension();
-            request()->image->move(public_path('uploads'), $imageName);
+            request()->image->move(public_path('uploads/posts'), $imageName);
             $post->image=$imageName;
         }
         $post->save();
@@ -118,7 +118,7 @@ class PostController extends Controller
             $file = $request->file('image');
             $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString()); 
             $name = $timestamp. '-' .$file->getClientOriginalName();
-            $file->move(public_path('uploads'), $name); 
+            $file->move(public_path('uploads/posts'), $name); 
             $post->image = $name;   
         }
         $post->save();

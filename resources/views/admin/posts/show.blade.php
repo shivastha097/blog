@@ -10,10 +10,10 @@
       	<hr>
       	<p>Posted on <span>{{$post->created_at->toFormattedDateString()}}</span> | Category: <span><a href="#">{{$post->category->name}}</a></span></p>
       	<hr>
-      	<img class="img-fluid rounded" src="{{ asset("uploads/$post->image") }}" alt="">
+      	<img class="img-fluid rounded" src="{{ asset("uploads/posts/$post->image") }}" alt="">
       	<hr>
 
-      	<div>{{$post->description}}</div>
+      	<div>{!! $post->description !!}</div>
     </div>
  </div>
  @endsection

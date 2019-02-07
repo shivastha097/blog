@@ -24,13 +24,12 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name'=>'required',
-            'status'=>'required',
-
+            'name'      =>  'required',
+            'status'    =>  'required' 
         ]);
         $category=new Category();
         $category->name=$name=$request->name;
-        $category->status=$request->status;
+        $category->status = $request->status;
         $category->slug=str_slug($name);
         $category->parent_id = $request->parent_id;
         $category->save();
@@ -46,14 +45,14 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.categories.edit',compact('category'));
+        $categories = Category::all();
+        return view('admin.categories.edit',compact('category', 'categories'));
     }
 
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'name'  =>  'required',
-            'status'=>  'required'
         ]);
         $category=Category::find($id);
         $category->name = $name = $request->name;
