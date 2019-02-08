@@ -21,9 +21,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          {!! $summernote->content !!}
+          
         </div>
-        <!-- <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-8 col-md-10 mx-auto">
           <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
 
           <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
@@ -60,7 +60,7 @@
           <p>Placeholder text by
             <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
             <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
-        </div> -->
+        </div>
         <div class="col-lg-8 col-md-10 mx-auto">
           <div id="disqus_thread"></div>
         </div>

@@ -5,7 +5,7 @@
 <div class="blog-content">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="col-lg-8 col-md-10 mx-auto pl-lg-0 pr-lg-4">
         <div class="post-item">
           <br>
           <div class="featured-image">
